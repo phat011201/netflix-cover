@@ -26,7 +26,7 @@ const FollowLists = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-4 overflow-auto no-scrollbar">
+      <div className="flex flex-col gap-4 overflow-auto no-scrollbar mb-8">
         <h3 className="text-gray-600 font-semibold text-xs">Following</h3>
         {FOLLOW_LISTS.slice(0, isLimitFollowItem).map((item, index) => {
           return (
