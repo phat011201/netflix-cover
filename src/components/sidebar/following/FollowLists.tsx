@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 import FollowItem from "./FollowItem";
@@ -39,13 +37,15 @@ const FollowLists = () => {
           );
         })}
         <div
-          className={`flex gap-4 items-center mt-6`}
+          className={`w-full flex gap-4 items-center mt-4`}
           onMouseEnter={handleAnimationButton}
           onMouseLeave={handleAnimationButtonOut}
         >
           <button
-            className={`w-10 h-10 bg-red-600 rounded-full transition duration-500 ease-in-out ${
-              isAnimationButton ? "translate-x-0" : "translate-x-[225%]"
+            className={`w-10 h-10 rounded-full transition duration-500 ease-in-out ${
+              isAnimationButton
+                ? "translate-x-0"
+                : "translate-x-8 w-full bg-main"
             }`}
             onClick={handleMoreFollowItem}
           >

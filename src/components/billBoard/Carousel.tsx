@@ -15,7 +15,7 @@ interface Images {
   }[];
 }
 
-const SlideBar: React.FC<Images> = ({ images }) => {
+const Carousel: React.FC<Images> = ({ images }) => {
   const [startIndex, setStartIndex] = React.useState(0);
   const imagesInView = 4;
 
@@ -34,7 +34,7 @@ const SlideBar: React.FC<Images> = ({ images }) => {
     <>
       <div className="flex items-center relative">
         <button
-          className="w-8 h-8 bg-red-600 rounded-full absolute -start-4 transition ease-in-out hover:scale-105 active:scale-95"
+          className="w-8 h-8 bg-main rounded-full absolute -start-4 transition ease-in-out hover:scale-105 active:scale-95 z-40"
           onClick={goToPreviousImages}
         >
           <FontAwesomeIcon icon={faChevronLeft} />
@@ -43,16 +43,20 @@ const SlideBar: React.FC<Images> = ({ images }) => {
           {[...images, ...images, ...images]
             .slice(startIndex, startIndex + imagesInView)
             .map((image, index) => (
-              <img
-                src={image.src}
-                alt={image.alt}
+              <button
+                className="transition ease-in-out hover:scale-95 active:scale-90 z-0"
                 key={index}
-                className="w-34 h-20 object-cover rounded-2xl"
-              />
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-34 h-20 object-cover rounded-2xl"
+                />
+              </button>
             ))}
         </div>
         <button
-          className="w-8 h-8 bg-red-600 rounded-full absolute -end-4 transition ease-in-out hover:scale-105 active:scale-95"
+          className="w-8 h-8 bg-main rounded-full absolute -end-4 transition ease-in-out hover:scale-105 active:scale-95 z-40"
           onClick={goToNextImages}
         >
           <FontAwesomeIcon icon={faChevronRight} />
@@ -62,4 +66,4 @@ const SlideBar: React.FC<Images> = ({ images }) => {
   );
 };
 
-export default SlideBar;
+export default Carousel;

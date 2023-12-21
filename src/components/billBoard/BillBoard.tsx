@@ -1,7 +1,9 @@
+import React from "react";
+
+import Carousel from "./Carousel";
+
 import { faWifi } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import Carousel from "./Carousel";
 
 const BillBoard = () => {
   return (
@@ -9,16 +11,17 @@ const BillBoard = () => {
       <div className="relative">
         <div>
           <video
-            src={`http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`}
             autoPlay
             loop
+            muted={true}
             controls={false}
             className={`w-full h-[32rem] object-cover brightness-[60%] transition duration-500`}
+            src={`http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`}
           ></video>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 h-[85%]">
             <div className="h-full flex justify-between">
               <div className="flex flex-col justify-between items-start">
-                <button className="px-3 py-2 flex gap-4 items-center bg-red-600 rounded-2xl transition ease-in-out hover:scale-110 active:scale-100">
+                <button className="px-3 py-2 flex gap-4 items-center bg-main rounded-2xl transition ease-in-out hover:scale-110 active:scale-100">
                   <FontAwesomeIcon icon={faWifi} />
                   <span>Live</span>
                 </button>
@@ -26,7 +29,7 @@ const BillBoard = () => {
                   <h1 className="text-4xl font-bold">Big Buck Bunny</h1>
                   <p className="text-2xl">Short Film</p>
                 </div>
-                <button className="text-2xl font-semibold px-9 py-5 flex gap-4 items-center bg-red-600 rounded-3xl transition ease-in-out hover:scale-110 active:scale-100">
+                <button className="text-2xl font-semibold px-9 py-5 flex gap-4 items-center bg-main rounded-3xl transition ease-in-out hover:scale-110 active:scale-100">
                   Watch
                 </button>
               </div>

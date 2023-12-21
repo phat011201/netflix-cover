@@ -7,7 +7,7 @@ const Home: React.FC = () => {
     <>
       <div className="flex overflow-hidden">
         <Sidebar />
-        <div className="w-full">
+        <div className="w-5/6 flex flex-col items-center">
           <Header />
           <div className="w-full overflow-y-scroll no-scrollbar">
             <BillBoard />
