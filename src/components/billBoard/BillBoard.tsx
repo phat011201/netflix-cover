@@ -39,7 +39,7 @@ const BillBoard = () => {
           <video
             autoPlay
             loop
-            muted={true}
+            muted
             controls={false}
             className={`w-full h-[32rem] object-cover brightness-[60%] transition duration-500 z-0`}
             poster={carouselData?.thumbnailUrl}

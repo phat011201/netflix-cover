@@ -36,5 +36,5 @@
 }
 
 body {
-  @apply bg-body-dark;
+  @apply bg-body-dark overflow-x-hidden no-scrollbar;
 }
