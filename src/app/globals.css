@@ -14,10 +14,10 @@
 
 @layer components {
   .bg-main {
-    @apply bg-red-700;
+    background-color: #892be291;
   }
   .text-main {
-    @apply text-red-700;
+    color: #8a2be2;
   }
   .text-main-dark {
     color: #fff;

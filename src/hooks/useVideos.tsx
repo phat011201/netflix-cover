@@ -3,9 +3,11 @@
 import React from "react";
 import axios from "axios";
 
-import { API_URL, DataVideos, Videos } from "@/constants/api";
 
-const useVideos = (id?: string): Videos => {
+import { API_URL } from "@/constants/api";
+import {  DataVideos, Videos } from "@/constants/interface";
+
+const useVideos = (id?: string | string[]): Videos => {
   const [data, setData] = React.useState<DataVideos[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<any>(null);

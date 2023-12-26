@@ -1,19 +1,9 @@
-import BillBoard from "@/components/billBoard/BillBoard";
-import Header from "@/components/header/Header";
-import Sidebar from "@/components/sidebar/Sidebar";
+import React from "react";
 
 const Home: React.FC = () => {
   return (
     <>
-      <div className="flex overflow-hidden">
-        <Sidebar />
-        <div className="w-5/6 flex flex-col items-center">
-          <Header />
-          <div className="w-full overflow-y-scroll no-scrollbar">
-            <BillBoard />
-          </div>
-        </div>
-      </div>
+      <div>Introduction</div>
     </>
   );
 };

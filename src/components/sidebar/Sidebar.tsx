@@ -5,6 +5,9 @@ import React from "react";
 import NewsFeedList from "./newsFeed/NewsFeedList";
 import FollowLists from "./following/FollowLists";
 
+import { NEWS_FEED } from "@/constants/newsFeed";
+import { FOLLOW_LISTS } from "@/constants/follow";
+
 const Sidebar = () => {
   return (
     <>
@@ -17,9 +20,9 @@ const Sidebar = () => {
             Net.<span className="text-main">WORLD</span>
           </span>
         </div>
-        <NewsFeedList />
+        {NEWS_FEED && <NewsFeedList newsFeed={NEWS_FEED} />}
         <hr className="border border-[rgba(82,82,91,0.2)]" />
-        <FollowLists />
+        {FOLLOW_LISTS && <FollowLists followLists={FOLLOW_LISTS} />}
         <div className="w-[80%] absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <hr className="border border-[rgba(82,82,91,0.2)] mb-2" />
           <div className="flex justify-center items-center text-gray-600 font-bold">

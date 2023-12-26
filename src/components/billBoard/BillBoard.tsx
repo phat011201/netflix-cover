@@ -1,18 +1,19 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
-import { DataVideos } from "@/constants/api";
+import { DataVideos } from "@/constants/interface";
 
-import Carousel from "../carousel/Carousel";
+import Carousel from "@/components/carousel/Carousel";
+import Loading from "@/components/notification/Loading";
+import StatusLive from "@/components/billBoard/StatusLive";
 
 import useVideos from "@/hooks/useVideos";
-
-import { faWifi } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useCarousel from "@/hooks/useCarousel";
 
 const BillBoard = () => {
+  const router = useRouter();
   const { data, loading, error } = useVideos();
   const [selectedData, setSelectedData] = React.useState<DataVideos | null>(
     null
@@ -23,9 +24,13 @@ const BillBoard = () => {
     setSelectedData(data);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
   if (error) return <p>Error</p>;
+
+  const handleWatchClick = () => {
+    router.push(`/watch/${carouselData?.id}`);
+  };
 
   return (
     <>
@@ -36,26 +41,38 @@ const BillBoard = () => {
             loop
             muted={true}
             controls={false}
-            className={`w-full h-[32rem] object-cover brightness-[60%] transition duration-500`}
+            className={`w-full h-[32rem] object-cover brightness-[60%] transition duration-500 z-0`}
+            poster={carouselData?.thumbnailUrl}
             src={carouselData?.videoUrl}
+            onContextMenu={(e) => e.preventDefault()}
           ></video>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 h-[85%]">
-            <div className="h-full flex justify-between">
-              <div className="flex flex-col justify-between items-start">
-                <button className="px-3 py-2 flex gap-4 items-center bg-main rounded-2xl transition ease-in-out hover:scale-110 active:scale-100">
-                  <FontAwesomeIcon icon={faWifi} />
-                  <span>Live</span>
-                </button>
-                <div className="flex flex-col text-start gap-4 max-w-[32rem]">
-                  <h1 className="text-4xl font-bold">{carouselData?.title}</h1>
-                  <p className="text-xl">{carouselData?.description}</p>
+          <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-50">
+            <div className="w-11/12 h-[85%]">
+              <div className="h-full flex justify-between">
+                <div
+                  className={`flex flex-col items-start ${
+                    carouselData?.status
+                      ? "justify-between"
+                      : "justify-end gap-16"
+                  }`}
+                >
+                  <StatusLive status={carouselData?.status} />
+                  <div className="flex flex-col text-start gap-4 max-w-[32rem]">
+                    <h1 className="text-4xl font-bold">
+                      {carouselData?.title}
+                    </h1>
+                    <p className="text-xl">{carouselData?.description}</p>
+                  </div>
+                  <button
+                    onClick={handleWatchClick}
+                    className="text-2xl font-semibold px-9 py-5 flex gap-4 items-center bg-main rounded-3xl transition ease-in-out hover:scale-110 active:scale-100"
+                  >
+                    Watch
+                  </button>
                 </div>
-                <button className="text-2xl font-semibold px-9 py-5 flex gap-4 items-center bg-main rounded-3xl transition ease-in-out hover:scale-110 active:scale-100">
-                  Watch
-                </button>
-              </div>
-              <div className="h-full flex items-end">
-                <Carousel data={data} onCardClick={handleCardClick} />
+                <div className="h-full flex items-end">
+                  <Carousel data={data} onCardClick={handleCardClick} />
+                </div>
               </div>
             </div>
           </div>

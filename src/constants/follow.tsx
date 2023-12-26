@@ -1,10 +1,6 @@
 "use client";
 
-interface IFollowing {
-  src: string;
-  name: string;
-  status: boolean;
-}
+import { IFollowing } from "@/constants/interface";
 
 export const FOLLOW_LISTS: Array<IFollowing> = [
   {

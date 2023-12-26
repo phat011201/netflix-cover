@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { DataVideos } from "@/constants/api";
+import { DataVideos } from "@/constants/interface";
 
 const useCarousel = (dataVideos?: DataVideos) => {
   const [data, setData] = React.useState<DataVideos>();

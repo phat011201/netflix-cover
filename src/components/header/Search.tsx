@@ -5,9 +5,11 @@ import React from "react";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Search = () => {
-  const [search, setSearch] = React.useState("");
+interface SearchProps {
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+}
 
+const Search: React.FC<SearchProps> = ({ setSearch }) => {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
