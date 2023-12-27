@@ -1,14 +1,14 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 interface DataVideos {
-  _id: string | string[] | undefined;
+  _id: string;
   title: string;
   description: string;
   videoUrl: string;
   thumbnailUrl: string;
   genre: string;
   duration: string;
-  status: boolean;
+  status?: boolean;
 }
 
 interface DataUsers {
