@@ -16,7 +16,7 @@ const useMovie = (id: string | string[]) => {
       try {
         setLoading(true);
         const response = await axios.get(`${API_URL}/videos/${id}`);
-        setData(response.data.videos);
+        setData(response.data.video);
       } catch (error) {
         setError(error as boolean);
       } finally {

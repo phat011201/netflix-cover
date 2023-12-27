@@ -1,7 +1,7 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 interface DataVideos {
-  id: number;
+  _id: string | string[] | undefined;
   title: string;
   description: string;
   videoUrl: string;

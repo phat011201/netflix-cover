@@ -29,7 +29,7 @@ const BillBoard = () => {
   if (error) return <p>Error</p>;
 
   const handleWatchClick = () => {
-    router.push(`/watch/${carouselData?.id}`);
+    router.push(`/watch/${carouselData?._id}`);
   };
 
   return (

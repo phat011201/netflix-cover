@@ -31,6 +31,6 @@
     "src/hooks/useNetflix.jsx",
     "lib/mongo/mongodb.js",
     "src/pages/api/videos/index.ts"
-  ],
+, "src/pages/api/videos/[_id]/index.ts"  ],
   "exclude": ["node_modules"]
 }

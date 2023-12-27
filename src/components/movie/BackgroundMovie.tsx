@@ -25,7 +25,7 @@ const BackgroundMovie: React.FC<BackgroundMovieProps> = ({
   return (
     <>
       <div
-        className={`w-full h-full relative overflow-hidden ${
+        className={`w-full h-full absolute overflow-hidden ${
           mouseMoving ? "z-20" : "z-0"
         }`}
         onClick={onMovieClick}
@@ -34,7 +34,7 @@ const BackgroundMovie: React.FC<BackgroundMovieProps> = ({
         <FontAwesomeIcon
           onClick={handleBack}
           icon={faChevronLeft}
-          className="w-10 h-10 text-8xl cursor-pointer absolute top-10 left-10"
+          className="w-10 h-10 text-8xl text-white cursor-pointer absolute top-10 left-10"
         />
       </div>
     </>

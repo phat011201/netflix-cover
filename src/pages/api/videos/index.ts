@@ -1,5 +1,3 @@
-// videos.js
-
 import { NextApiRequest, NextApiResponse } from "next";
 
 import { getVideos, createVideo } from "@lib/mongo/videos";
@@ -28,6 +26,5 @@ export default async function handler(
       }
       break;
   }
-  res.setHeader("Allow", ["GET"]);
-  return res.status(425).end(`Method Not Allowed`);
+  res.setHeader("Allow", ["GET", "POST"]);
 }

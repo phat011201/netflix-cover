@@ -1,5 +1,8 @@
 import React from "react";
 
+// taildwindcss
+import "tailwindcss/tailwind.css";
+
 import MovieBox from "@/components/movie/MovieBox";
 
 const Watch = () => {
