@@ -4,8 +4,7 @@ import React from "react";
 import axios from "axios";
 
 import { API_URL } from "@/constants/api";
-import {  DataVideos } from "@/constants/interface";
-
+import { DataVideos } from "@/constants/interface";
 
 const useMovie = (id: string | string[]) => {
   const [data, setData] = React.useState<DataVideos>({} as DataVideos);
@@ -17,7 +16,7 @@ const useMovie = (id: string | string[]) => {
       try {
         setLoading(true);
         const response = await axios.get(`${API_URL}/videos/${id}`);
-        setData(response.data);
+        setData(response.data.videos);
       } catch (error) {
         setError(error as boolean);
       } finally {

@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import useMovie from "@/hooks/useMovie";
 
 const Movie = () => {
-  const videoId = useParams().id;
+  const videoId = useParams()._id;
   const { data: videos } = useMovie(videoId);
 
   return (

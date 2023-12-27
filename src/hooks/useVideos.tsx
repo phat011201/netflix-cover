@@ -3,9 +3,8 @@
 import React from "react";
 import axios from "axios";
 
-
 import { API_URL } from "@/constants/api";
-import {  DataVideos, Videos } from "@/constants/interface";
+import { DataVideos, Videos } from "@/constants/interface";
 
 const useVideos = (id?: string | string[]): Videos => {
   const [data, setData] = React.useState<DataVideos[]>([]);
@@ -19,7 +18,7 @@ const useVideos = (id?: string | string[]): Videos => {
         const response = await axios.get(
           `${API_URL}/videos${id ? `/${id}` : ""}`
         );
-        setData(response.data);
+        setData(response.data.videos);
       } catch (error) {
         setError(error);
       }
