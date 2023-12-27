@@ -2,7 +2,7 @@
 
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { getVideos } from "@lib/mongo/videos";
+import { getVideos, createVideo } from "@lib/mongo/videos";
 
 export default async function handler(
   req: NextApiRequest,
@@ -14,6 +14,15 @@ export default async function handler(
         const { videos, error } = await getVideos();
         if (error) throw new Error(error);
         return res.status(200).json({ videos });
+      } catch (error: any) {
+        res.status(500).json({ error: error.message });
+      }
+      break;
+    case "POST":
+      try {
+        const { video, error } = await createVideo(req.body);
+        if (error) throw new Error(error);
+        return res.status(200).json({ video });
       } catch (error: any) {
         res.status(500).json({ error: error.message });
       }
